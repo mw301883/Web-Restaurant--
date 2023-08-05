@@ -1,0 +1,210 @@
+body{
+    margin: 0;
+    background-color: rgb(163, 232, 235);
+}
+
+header{
+    background-color: rgb(85, 223, 228);
+    margin: 0;
+    height: 20%;
+    text-align: center;
+    color: rgb(9, 8, 8);
+}
+
+.title{
+    font-weight: bold;
+    font-size: xx-large;
+    color: rgb(21, 79, 91);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+.header-container{
+    display: flex;
+}
+
+.price{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: larger;
+    color: rgb(21, 79, 91);
+    margin-left: 60%;
+}
+
+.basket{
+    
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: x-large;
+    color: rgb(21, 79, 91);
+    margin-top: 10px;
+    margin-left: 10%;
+    background-color: aquamarine;
+    border-radius: 50%;
+    width: 100px;
+    height: 40px;
+    box-shadow: 2px 2px 2px 1px rgb(58, 57, 57);
+}
+
+.basket:hover{
+    background-color: aliceblue;
+}
+
+.element-main{
+    width: 95%;
+    margin: 20px auto 20px auto;
+    background-color: rgb(110, 190, 224);
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
+
+.menu-descr{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: x-large;
+    color: rgb(21, 79, 91);
+    font-weight: bold;
+}
+
+.element{
+    width: 90%;
+    background-color: rgb(83, 227, 217);
+    margin: 10px auto 10px auto;
+    display: flex;    
+}
+
+.left-side{
+    width: 70%;
+}
+
+.image{
+    width: 90%;
+    height: 60%;
+    margin: 50px 130px 10px 10px;
+    background-color: rgb(53, 53, 56);
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.right-side{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.name{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: x-large;
+    color: rgb(21, 79, 91);
+    font-weight: bold;
+    margin: 20px 10% 30px auto;
+    height: 20px;
+}
+
+.text-descr{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: medium;
+    color: rgb(21, 79, 91);
+    width: 90%;
+    margin: 5% 80% 5% 5%;
+    background-color: antiquewhite;
+    box-shadow: 3px 3px 3px 3px rgb(101, 101, 105);
+    padding: 10px;
+}
+
+.button-section{
+    display: flex;
+    margin: 50px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+}
+
+.price-add{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: x-large;
+    color: rgb(21, 79, 91);
+    margin-right: 10%;
+    margin-left: 50%;
+}
+
+.button-class{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    color: rgb(21, 79, 91);
+    background-color: bisque;
+    font-weight: bold;
+    font-size: medium;
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgb(101, 101, 105);
+}
+
+.button-class:hover{
+    background-color: aliceblue;
+}
+
+.name-descr{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: large;
+    color: rgb(21, 79, 91);
+    font-weight: bold;
+    margin: 20px 15% 30px 10%;
+    height: 20px;
+}
+
+.element-basket{
+    width: 90%;
+    background-color: rgb(83, 227, 217);
+    margin: 10px auto 10px auto;
+    display: flex;
+    justify-content: space-between; 
+    padding: 5px;
+}
+
+.name-basket{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: large;
+    color: rgb(21, 79, 91);
+    font-weight: bold;
+    margin: 20px 10% 30px auto;
+    height: 20px;
+}
+
+.button-class-next{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    color: rgb(21, 79, 91);
+    background-color: bisque;
+    font-weight: bold;
+    font-size: larger;
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgb(101, 101, 105);
+    margin: 5px auto 5px auto;
+}
+
+.button-class-next:hover{
+    background-color: aliceblue;
+}
+
+.element-summary{
+    width: 90%;
+    background-color: rgb(83, 227, 217);
+    margin: 10px auto 10px auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.element-summary > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.text-label{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: medium;
+    color: rgb(21, 79, 91);
+    font-weight: bold;
+    padding: 10px;
+    min-width: 150px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 5px;
+}
