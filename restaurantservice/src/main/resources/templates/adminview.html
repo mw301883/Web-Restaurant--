@@ -30,29 +30,31 @@
                 <span class="menu-descr">
                     Zawartosc koszyka
                 </span>
-                <div class="element-summary">
-                    <div>
-                        <label for="URL" class="text-label">Zdjęcie(URL): </label>
-                        <input type="text" id="URL" name="URL">
+                <form th:action="@{/admin}" method="post">
+                    <div class="element-summary">
+                        <div>
+                            <label for="URL" class="text-label">Zdjęcie(URL): </label>
+                            <input type="text" id="URL" name="URL" required>
+                        </div>
+                        <div>
+                            <label for="Name" class="text-label">Nazwa: </label>
+                            <input type="text" id="Name" name="Name" required>
+                        </div>
+                        <div>
+                            <label for="Descr" class="text-label">Opis: </label>
+                            <input type="text" id="Descr" name="Descr" required>
+                        </div>
+                        <div>
+                            <label for="Price" class="text-label">Cena: </label>
+                            <input type="number" min="0.01" step="0.01" id="Price" name="Price" required>
+                        </div>
                     </div>
-                    <div>
-                        <label for="Name" class="text-label">Nazwa: </label>
-                        <input type="text" id="Name" name="Name">
+                    <div class="element">
+                        <button type="submit" class="button-class-next">
+                            Dodaj
+                        </button>
                     </div>
-                    <div>
-                        <label for="Descr" class="text-label">Opis: </label>
-                        <input type="text" id="Descr" name="Descr">
-                    </div>
-                    <div>
-                        <label for="Price" class="text-label">Cena: </label>
-                        <input type="text" id="Price" name="Price">
-                    </div>
-                </div>
-                <div class="element">
-                    <button class="button-class-next">
-                        Dodaj
-                    </button>
-                </div>
+                </form>
                 <div class="element">
                     <div class="left-side">
                       <img src="https://www.tasteatlas.com/images/dishes/7c83f24ab48449c2a6f70784285b8e3f.jpg" class="image">

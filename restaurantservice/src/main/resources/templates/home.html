@@ -26,7 +26,7 @@
         <span class="menu-descr">
           Dostępne dania
         </span>
-        <div class="element">
+        <div class="element" th:each="meal : ${meals}">
           <div class="left-side">
             <img th:src="@{${meal.ImgURL}}" class="image">
           </div>
