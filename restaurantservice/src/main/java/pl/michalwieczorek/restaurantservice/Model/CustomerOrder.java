@@ -1,27 +1,30 @@
 package pl.michalwieczorek.restaurantservice.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Order {
+@Entity
+public class CustomerOrder {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    private List<Meal> Meals = new ArrayList<Meal>();
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "meal_id")
+    private Meal meal;
     private boolean isPaid;
     private boolean isCompleted;
     private Calendar BeginDate;
     private Calendar EndDate;
-    private Customer OrderOwner;
 }

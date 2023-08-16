@@ -1,15 +1,15 @@
 package pl.michalwieczorek.restaurantservice.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -17,13 +17,15 @@ import java.math.BigDecimal;
 @Entity
 public class Meal {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String Name;
     @Lob
     private String Description;
     private  String ImgURL;
     private BigDecimal Price;
+    @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
+    private Set<CustomerOrder> MealOrders = new HashSet<>();
 
     public Meal(String Name, String Description, String ImgURL, BigDecimal Price){
         this.Name = Name;
