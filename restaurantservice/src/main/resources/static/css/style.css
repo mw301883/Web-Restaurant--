@@ -68,17 +68,14 @@ header{
     display: flex;    
 }
 
-.left-side{
-    width: 70%;
-}
-
 .image{
-    width: 90%;
-    height: 60%;
+    width: 500px;
+    height: 200px;
     margin: 50px 130px 10px 10px;
     background-color: rgb(53, 53, 56);
     padding: 3px;
     border-radius: 50%;
+    overflow: hidden;
 }
 
 .right-side{
@@ -131,6 +128,10 @@ header{
     border-radius: 5px;
     box-shadow: 1px 1px 1px 1px rgb(101, 101, 105);
     margin-left: 50%;
+}
+
+.button-class-home:hover{
+    background-color: aliceblue;
 }
 
 .button-class{
