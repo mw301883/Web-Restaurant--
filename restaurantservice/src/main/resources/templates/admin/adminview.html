@@ -29,7 +29,7 @@
                 <span class="menu-descr">
                     Zawartosc koszyka
                 </span>
-                <form th:action="@{/admin}" method="post">
+                <form th:action="@{/admin/add}" method="post">
                     <div class="element-summary">
                         <div>
                             <label for="Name" class="text-label">Nazwa: </label>
@@ -69,9 +69,11 @@
                             <span class="price-add">
                                 zł
                             </span>
-                            <button class="button-class-home">
-                                Usuń
-                            </button>
+                            <form th:action="@{/admin/delete(Id=${meal.Id})}" method="post">
+                                <button type="submit" class="button-class-home">
+                                    Usuń
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

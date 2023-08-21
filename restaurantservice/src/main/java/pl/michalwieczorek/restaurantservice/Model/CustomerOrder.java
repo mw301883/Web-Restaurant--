@@ -15,11 +15,10 @@ import java.util.Calendar;
 @Entity
 public class CustomerOrder {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
+    @Id
     @ManyToOne
     @JoinColumn(name = "meal_id")
     private Meal meal;

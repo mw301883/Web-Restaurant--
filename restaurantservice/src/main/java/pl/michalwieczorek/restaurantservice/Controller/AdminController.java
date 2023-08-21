@@ -3,31 +3,37 @@ package pl.michalwieczorek.restaurantservice.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.michalwieczorek.restaurantservice.Model.Meal;
 import pl.michalwieczorek.restaurantservice.Repository.MealRepository;
+import pl.michalwieczorek.restaurantservice.Service.MealService;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    private final MealRepository mealRepository;
-
+    private final MealService mealService;
     @Autowired
-    public AdminController(MealRepository mealRepository) {
-        this.mealRepository = mealRepository;
+    public AdminController(MealService mealService) {
+        this.mealService = mealService;
     }
-
     @GetMapping
     public String AdminPage(Model model){
-        model.addAttribute( "meals", mealRepository.findAll());
+        model.addAttribute( "meals", mealService.findAll());
         return "admin/adminview";
     }
-    @PostMapping
+    @PostMapping("/add")
     public String AddMeal(Meal NewMeal){
-        mealRepository.save(NewMeal);
-        return "redirect:/";
+        mealService.addMeal(NewMeal);
+        return "redirect:/admin";
+    }
+    @PostMapping("/delete")
+    public String RemoveMeal(@RequestParam Long Id){
+        System.out.println(Id);
+        mealService.deleteMeal(Id);
+        return "redirect:/admin";
     }
 
     @GetMapping("/orders")
