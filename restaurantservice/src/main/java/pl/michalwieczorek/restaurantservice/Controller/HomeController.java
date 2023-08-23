@@ -20,9 +20,10 @@ public class HomeController {
         model.addAttribute( "meals", mealRepository.findAll());
         return "shop/home";
     }
-
     @GetMapping("/cart")
     public String CartPage(){ return "shop/cart"; }
     @GetMapping("/summary")
     String SummaryPage(){ return "shop/summary"; }
+    @GetMapping("/login")
+    String LoginPage(){ return "shop/login"; }
 }

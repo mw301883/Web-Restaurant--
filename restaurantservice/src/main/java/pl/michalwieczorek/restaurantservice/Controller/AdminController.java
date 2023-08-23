@@ -5,11 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.michalwieczorek.restaurantservice.Model.Meal;
-import pl.michalwieczorek.restaurantservice.Repository.MealRepository;
 import pl.michalwieczorek.restaurantservice.Service.MealService;
 
-import javax.swing.text.html.Option;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
@@ -35,14 +32,9 @@ public class AdminController {
         mealService.deleteMeal(Id);
         return "redirect:/admin";
     }
-
     @GetMapping("/orders")
     String OrdersPage(){ return "admin/orders"; }
-
     @GetMapping("/password")
     String PasswordPage(){ return "admin/password"; }
-
-    @GetMapping("/login")
-    String LoginPage(){ return "admin/login"; }
 
 }
