@@ -25,6 +25,7 @@ public class AdminAccountService {
     }
     public void SetPassword(String Password){
         Optional<AdminAccount> obj = adminAccountRepository.findById(1L);
+        System.out.println(Password);
         obj.get().setPassword(Password);
         adminAccountRepository.save(obj.get());
     }

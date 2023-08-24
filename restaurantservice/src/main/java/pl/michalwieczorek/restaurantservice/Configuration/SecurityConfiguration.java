@@ -22,6 +22,11 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+    private final AdminAccountService adminAccountService;
+    @Autowired
+    public SecurityConfiguration(AdminAccountService adminAccountService){
+        this.adminAccountService = adminAccountService;
+    }
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         RequestMatcher adminRequestMatcher = new AntPathRequestMatcher("/admin/**");

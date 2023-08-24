@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.michalwieczorek.restaurantservice.Model.Meal;
+import pl.michalwieczorek.restaurantservice.Service.AdminAccountService;
 import pl.michalwieczorek.restaurantservice.Service.MealService;
 
 
@@ -12,9 +13,11 @@ import pl.michalwieczorek.restaurantservice.Service.MealService;
 @RequestMapping("/admin")
 public class AdminController {
     private final MealService mealService;
+    private final AdminAccountService adminAccountService;
     @Autowired
-    public AdminController(MealService mealService) {
+    public AdminController(MealService mealService, AdminAccountService adminAccountService) {
         this.mealService = mealService;
+        this.adminAccountService = adminAccountService;
     }
     @GetMapping
     public String AdminPage(Model model){
@@ -37,4 +40,13 @@ public class AdminController {
     @GetMapping("/password")
     String PasswordPage(){ return "admin/password"; }
 
+    @PostMapping("/changePassword")
+    public String changePassword(@RequestParam String Password, @RequestParam String Password_re){
+        if(Password.equals(Password_re)){
+            adminAccountService.SetPassword(Password.substring(1));
+            return "redirect:/admin";
+        }else{
+            return "admin/password";
+        }
+    }
 }
