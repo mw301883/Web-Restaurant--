@@ -13,6 +13,7 @@ import java.util.Calendar;
 @Getter
 @Setter
 @Entity
+@IdClass(CustomerOrderId.class)
 public class CustomerOrder {
     @Id
     @ManyToOne

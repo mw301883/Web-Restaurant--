@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.michalwieczorek.restaurantservice.Configuration.SecurityConfiguration;
 import pl.michalwieczorek.restaurantservice.Model.Meal;
 import pl.michalwieczorek.restaurantservice.Service.AdminAccountService;
 import pl.michalwieczorek.restaurantservice.Service.MealService;
