@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.michalwieczorek.restaurantservice.Configuration.SecurityConfiguration;
 import pl.michalwieczorek.restaurantservice.Model.Meal;
 import pl.michalwieczorek.restaurantservice.Service.AdminAccountService;
 import pl.michalwieczorek.restaurantservice.Service.MealService;
@@ -41,7 +42,7 @@ public class AdminController {
     String PasswordPage(){ return "admin/password"; }
 
     @PostMapping("/changePassword")
-    public String changePassword(@RequestParam String Password, @RequestParam String Password_re){
+    public String changePassword(@RequestParam String Password, @RequestParam String Password_re) throws Exception {
         if(Password.equals(Password_re)){
             adminAccountService.SetPassword(Password.substring(1));
             return "redirect:/admin";

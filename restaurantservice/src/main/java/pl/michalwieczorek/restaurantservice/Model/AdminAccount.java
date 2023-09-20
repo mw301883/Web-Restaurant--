@@ -19,8 +19,12 @@ public class AdminAccount {
     private Long Id;
     private String Username;
     private String Password;
+    private String Authority;
+    private boolean enabled;
     public AdminAccount(String Username, String Password){
         this.Username = Username;
         this.Password = Password;
+        this.Authority = "ADMIN";
+        this.enabled = true;
     }
 }
