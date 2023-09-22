@@ -21,6 +21,7 @@ public class Customer {
     private String Name;
     private String Surname;
     private String Adress;
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<CustomerOrder> CustomerOrders = new HashSet<>();
+    private Set<Long> Order_IDs = new HashSet<>();
+//    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+//    private Set<CustomerOrder> CustomerOrders = new HashSet<>();
 }

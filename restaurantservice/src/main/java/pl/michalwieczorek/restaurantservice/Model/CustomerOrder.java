@@ -13,16 +13,11 @@ import java.util.Calendar;
 @Getter
 @Setter
 @Entity
-@IdClass(CustomerOrderId.class)
 public class CustomerOrder {
     @Id
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "meal_id")
-    private Meal meal;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
+    private Long Customer_Id;
     private boolean isPaid;
     private boolean isCompleted;
     private Calendar BeginDate;

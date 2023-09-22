@@ -15,7 +15,4 @@ public class OrderService {
     public void addOrder(CustomerOrder customerOrder){
         orderRepository.save(customerOrder);
     }
-    public CustomerOrder getCustomerOrderById(Long customerId, Long mealId) {
-        return orderRepository.findByCustomer_IdAndMeal_Id(customerId, mealId).orElse(null);
-    }
 }

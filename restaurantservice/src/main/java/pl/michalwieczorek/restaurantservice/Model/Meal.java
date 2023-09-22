@@ -24,9 +24,6 @@ public class Meal {
     private String Description;
     private  String ImgURL;
     private BigDecimal Price;
-    @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
-    private Set<CustomerOrder> MealOrders = new HashSet<>();
-
     public Meal(String Name, String Description, String ImgURL, BigDecimal Price){
         this.Name = Name;
         this.Description = Description;
