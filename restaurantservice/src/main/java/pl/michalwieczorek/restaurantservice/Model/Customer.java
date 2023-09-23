@@ -22,16 +22,18 @@ public class Customer {
     private String Surname;
     private String City;
     private String Adress;
-    private int Code;
-    private int Phone;
+    private String Code;
+    private Long Phone;
     private Set<Long> Order_IDs = new HashSet<>();
-
-    public Customer(String name, String surname, String city, String adress, int code, int phone) {
+    public Customer(String name, String surname, String city, String adress, String code, Long phone) {
         Name = name;
         Surname = surname;
         City = city;
         Adress = adress;
         Code = code;
         Phone = phone;
+    }
+    public void addOrderID(Long Id){
+        Order_IDs.add(Id);
     }
 }

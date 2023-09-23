@@ -79,9 +79,20 @@ public class HomeController {
         return "redirect:/cart";
     }
     @PostMapping("/makeOrder")
-    public String makeOrder(@RequestParam Customer customer){
+    public String makeOrder(Customer customer){
         customerService.addCustomer(customer);
-        orderService.addOrder(new CustomerOrder(customer.getId(), MealsIDs));
+        if(customer.getId() != null){
+            Long CustomerID = customer.getId();
+            CustomerOrder order = new CustomerOrder(CustomerID, MealsIDs);
+            Long OrderID = orderService.addOrder(order);
+            customerService.addOrder(CustomerID, OrderID);
+        }
+        else{
+            Long CustomerID = customerService.findID(customer);
+            CustomerOrder order = new CustomerOrder(CustomerID, MealsIDs);
+            Long OrderID = orderService.addOrder(order);
+            customerService.addOrder(CustomerID, OrderID);
+        }
         MealsIDs.clear();
         return "redirect:/";
     }

@@ -12,7 +12,11 @@ public class OrderService {
     OrderService(OrderRepository orderRepository){
         this.orderRepository = orderRepository;
     }
-    public void addOrder(CustomerOrder customerOrder){
-        orderRepository.save(customerOrder);
+    public Long addOrder(CustomerOrder customerOrder){
+        customerOrder = orderRepository.save(customerOrder);
+        return customerOrder.getId();
+    }
+    public Long returnSize(){
+        return orderRepository.count();
     }
 }
