@@ -20,8 +20,18 @@ public class Customer {
     private Long Id;
     private String Name;
     private String Surname;
+    private String City;
     private String Adress;
+    private int Code;
+    private int Phone;
     private Set<Long> Order_IDs = new HashSet<>();
-//    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-//    private Set<CustomerOrder> CustomerOrders = new HashSet<>();
+
+    public Customer(String name, String surname, String city, String adress, int code, int phone) {
+        Name = name;
+        Surname = surname;
+        City = city;
+        Adress = adress;
+        Code = code;
+        Phone = phone;
+    }
 }

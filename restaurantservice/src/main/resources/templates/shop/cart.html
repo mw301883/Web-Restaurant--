@@ -12,9 +12,9 @@
             Koszyk
           </span>
           <div class="header-container">
-            <p class="price">
-              Zawartość koszyka xx zł ()
-            </p>
+              <p class="price">
+                  Zawartość koszyka <span th:text="${price}"></span> zł (<span th:text="${count}"></span>)
+              </p>
             <a href="/" class="basket">
               Powrót
             </a>
@@ -26,19 +26,18 @@
             <span class="menu-descr">
                 Zawartosc koszyka
             </span>
-            <div class="element-basket">
+            <div class="element-basket" th:each="meal : ${cart}">
                 <p class="name-basket">
-                    Nazwa: 
+                    Nazwa: <span th:text="${meal.Name}"></span>
                 </p>
                 <p class="name-basket">
-                    Cena: xx zł
+                    Cena: <span th:text="${meal.Price}"></span> zł
                 </p>
-                <p class="name-basket">
-                    Ilosc:
-                </p>
-                <button class="button-class">
-                    Usuń z koszyka
-                </button>
+                <form th:action="@{/removefromCart(Id=${meal.Id})}" method="post">
+                    <button class="button-class" type="submit">
+                        Usuń z koszyka
+                    </button>
+                </form>
             </div>
             <div class="element-basket">
                 <button class="button-class-next">

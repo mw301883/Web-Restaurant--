@@ -1,6 +1,7 @@
 package pl.michalwieczorek.restaurantservice.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import pl.michalwieczorek.restaurantservice.Model.Customer;
 import pl.michalwieczorek.restaurantservice.Repository.CustomerRepository;
@@ -13,6 +14,9 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
     public void addCustomer(Customer customer){
-        customerRepository.save(customer);
+        Example<Customer> example = Example.of(customer);
+        if(!customerRepository.exists(example)){
+            customerRepository.save(customer);
+        }
     }
 }

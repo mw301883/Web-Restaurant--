@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Calendar;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,8 +19,16 @@ public class CustomerOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private Long Customer_Id;
-    private boolean isPaid;
+    private List<Long> MealsIDs;
     private boolean isCompleted;
     private Calendar BeginDate;
     private Calendar EndDate;
+
+    public CustomerOrder(Long Customer_Id, List<Long> MealsIDs) {
+        this.Customer_Id = Customer_Id;
+        this.MealsIDs = MealsIDs;
+        this.isCompleted = false;
+        this.BeginDate = Calendar.getInstance();
+        this.EndDate = null;
+    }
 }

@@ -12,10 +12,10 @@
                 Podsumowanie - dane dostawy
               </span>
               <div class="header-container">
-                <p class="price">
-                  Zawartość koszyka xx zł ()
-                </p>
-                <a href="" class="basket">
+                  <p class="price">
+                      Zawartość koszyka <span th:text="${price}"></span> zł (<span th:text="${count}"></span>)
+                  </p>
+                <a href="/cart" class="basket">
                   Powrót
               </a>
               </div>
@@ -24,27 +24,41 @@
         <section>
             <div class="element-main">
                 <span class="menu-descr">
-                    Zawartosc koszyka
+                    Podaj dane adresowe dostawy
                 </span>
-                <div class="element-summary">
-                    <div>
-                        <label for="City" class="text-label">Miejscowość: </label>
-                        <input type="text" id="City" name="City">
+                <form th:action="@{/makeOrder}" method="post">
+                    <div class="element-summary">
+                        <div>
+                            <label for="Name" class="text-label">Imię: </label>
+                            <input type="text" id="Name" name="Name" required>
+                        </div>
+                        <div>
+                            <label for="Surname" class="text-label">Nazwisko: </label>
+                            <input type="text" id="Surname" name="Surname" required>
+                        </div>
+                        <div>
+                            <label for="City" class="text-label">Miejscowość: </label>
+                            <input type="text" id="City" name="City" required>
+                        </div>
+                        <div>
+                            <label for="Adress" class="text-label">Adres: </label>
+                            <input type="text" id="Adress" name="Adress" required>
+                        </div>
+                        <div>
+                            <label for="Code" class="text-label">Kod pocztowy: </label>
+                            <input type="text" id="Code" name="Code" required>
+                        </div>
+                        <div>
+                            <label for="Phone" class="text-label">Telefon kontaktowy: </label>
+                            <input type="text" id="Phone" name="Phone" required>
+                        </div>
                     </div>
-                    <div>
-                        <label for="Adress" class="text-label">Adres: </label>
-                        <input type="text" id="Adress" name="Adress">
+                    <div class="element">
+                        <button class="button-class-next" type="submit">
+                            Zakup
+                        </button>
                     </div>
-                    <div>
-                        <label for="Code" class="text-label">Kod pocztowy: </label>
-                        <input type="text" id="Code" name="Code">
-                    </div>
-                </div>
-                <div class="element">
-                    <button class="button-class-next">
-                        Zakup
-                    </button>
-                </div>
+                </form>
             </div>
         </section>
     </body>

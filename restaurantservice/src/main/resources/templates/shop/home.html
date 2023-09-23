@@ -13,7 +13,7 @@
       </span>
       <div class="header-container">
         <p class="price">
-          Zawartość koszyka xx zł ()
+          Zawartość koszyka <span th:text="${price}"></span> zł (<span th:text="${count}"></span>)
         </p>
         <a href="cart" class="basket">
           Koszyk
@@ -26,27 +26,29 @@
         <span class="menu-descr">
           Dostępne dania
         </span>
-        <div class="element" th:each="meal : ${meals}">
-          <img th:src="@{${meal.ImgURL}}" class="image">
-          <div class="right-side">
-            <span class="name" th:text="${meal.Name}"></span>
-            <div> 
-              <p class="text-descr" th:text="${meal.Description}"></p>
-            </div>
-            <div class="button-section">
-              <span class="price-add">
-                Cena:
-              </span>
-              <span class="price-add" th:text="${meal.Price}"></span>
-              <span class="price-add">
-                zł
-              </span>
-              <button class="button-class-home">
-                Dodaj do koszyka
-              </button>
+          <div class="element" th:each="meal : ${meals}">
+            <img th:src="@{${meal.ImgURL}}" class="image">
+            <div class="right-side">
+              <span class="name" th:text="${meal.Name}"></span>
+              <div>
+                <p class="text-descr" th:text="${meal.Description}"></p>
+              </div>
+              <div class="button-section">
+                <span class="price-add">
+                  Cena:
+                </span>
+                <span class="price-add" th:text="${meal.Price}"></span>
+                <span class="price-add">
+                  zł
+                </span>
+                <form th:action="@{/addtoCart(Id=${meal.Id})}" method="post">
+                  <button class="button-class-home" type="submit">
+                    Dodaj do koszyka
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
     </div>
   </section>
 </body>
