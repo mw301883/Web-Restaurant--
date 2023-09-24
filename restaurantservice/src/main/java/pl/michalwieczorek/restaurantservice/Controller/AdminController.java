@@ -22,6 +22,7 @@ public class AdminController {
     @GetMapping
     public String AdminPage(Model model){
         model.addAttribute( "meals", mealService.findAll());
+        model.addAttribute("count", mealService.MealsCount());
         return "admin/adminview";
     }
     @PostMapping("/add")

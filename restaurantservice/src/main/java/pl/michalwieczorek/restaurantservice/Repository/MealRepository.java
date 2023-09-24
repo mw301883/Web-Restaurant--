@@ -6,4 +6,5 @@ import pl.michalwieczorek.restaurantservice.Model.Meal;
 
 @Repository
 public interface MealRepository extends JpaRepository<Meal, Long> {
+    long count();
 }

@@ -13,10 +13,13 @@
               </span>
               <div class="header-container">
                 <p class="price">
-                    Ilość elementów ()
+                    Ilość elementów ( <span th:text="${count}"></span>)
                 </p>
                 <a href="/admin/password" class="password">
                     Zmień hasło
+                </a>
+                <a href="/admin/orders" class="password">
+                  Panel zamówień
                 </a>
                 <a href="/logout" class="basket">
                     Wyloguj

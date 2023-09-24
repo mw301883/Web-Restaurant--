@@ -23,4 +23,7 @@ public class MealService {
     public void deleteMeal(Long Id){
         this.mealRepository.deleteById(Id);
     }
+    public long MealsCount(){
+        return mealRepository.count();
+    }
 }

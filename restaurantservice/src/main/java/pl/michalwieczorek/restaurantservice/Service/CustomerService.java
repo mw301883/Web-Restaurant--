@@ -16,15 +16,48 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
     public void addCustomer(Customer customer){
-        Example<Customer> example = Example.of(customer);
-        if(!customerRepository.exists(example)){
+        boolean isSame = false;
+        for(Customer cus : customerRepository.findAll()){
+            if( cus.getName().equals(customer.getName())){
+                if(cus.getSurname().equals(customer.getSurname())){
+                    if(cus.getCity().equals(customer.getCity())){
+                        if(cus.getAdress().equals(customer.getAdress())){
+                            if(cus.getCode().equals(customer.getCode())){
+                                if(cus.getPhone().equals(customer.getPhone())){
+                                    isSame = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if(isSame){
+                break;
+            }
+        }
+        if(!isSame){
             customerRepository.save(customer);
         }
     }
     public Long findID(Customer customer) {
-        Example<Customer> example = Example.of(customer);
-        Optional<Customer> one = customerRepository.findOne(example);
-        return one.map(Customer::getId).orElse(null);
+        boolean isSame = false;
+        Long ID = null;
+        for(Customer cus : customerRepository.findAll()){
+            if( cus.getName().equals(customer.getName())){
+                if(cus.getSurname().equals(customer.getSurname())){
+                    if(cus.getCity().equals(customer.getCity())){
+                        if(cus.getAdress().equals(customer.getAdress())){
+                            if(cus.getCode().equals(customer.getCode())){
+                                if(cus.getPhone().equals(customer.getPhone())){
+                                    ID = cus.getId();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return ID;
     }
     public void addOrder(Long Id, Long OrderId){
         Customer customer = customerRepository.findById(Id).get();
