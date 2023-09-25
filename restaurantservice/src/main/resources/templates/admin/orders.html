@@ -22,35 +22,45 @@
         <span class="menu-descr">Zamówienia</span>
         <div class="element-order" th:each="orderLink : ${orders}">
             <p class="name-order">
-                Numer: <!--<span th:text="${orderLink.order.Id}"></span>-->
+                Numer: <span th:text="${orderLink.order.Id}" class="name-order-in"></span>
             </p>
             <p class="name-order">
                 Zawartość:
+                <div th:each="meal : ${orderLink.meals}">
+                    <span th:text="${meal.Name}" class="name-order-in"> </span>
+                </div>
             </p>
             <p class="name-order">
-                Cena: <!--<span th:text="${orderLink.price}"></span>--> zł
+                Cena: <span th:text="${orderLink.price}" class="name-order-in"></span> zł
             </p>
             <p class="name-order">
-                Data złożenia: <!--<span th:text="${#calendars.format(orderLink.order.BeginDate, 'yyyy-MM-dd HH:mm:ss')}"></span>-->
+                Data złożenia: <span th:text="${#calendars.format(orderLink.order.BeginDate, 'yyyy-MM-dd HH:mm:ss')}" class="name-order-in"></span>
             </p>
             <p class="name-order">
-                Data realizacji: <!--<span th:text="${#calendars.format(orderLink.order.EndDate, 'yyyy-MM-dd HH:mm:ss')}"></span>-->
+                Data realizacji: <span th:text="${#calendars.format(orderLink.order.EndDate, 'yyyy-MM-dd HH:mm:ss')}" class="name-order-in"></span>
             </p>
             <p class="name-order">
                 Imię i Nazwisko Klienta:
+                <span th:text="${orderLink.customer.Name}" class="name-order-in"> </span>
+                <span th:text="${orderLink.customer.Surname}" class="name-order-in"></span>
             </p>
             <p class="name-order">
                 Dane adresowe:
+                <span th:text="${orderLink.customer.City}" class="name-order-in"> </span>
+                <span th:text="${orderLink.customer.Adress}" class="name-order-in"> </span>
+                <span th:text="${orderLink.customer.Code}" class="name-order-in"></span>
             </p>
             <p class="name-order">
-                Telefon kontaktowy:
+                Telefon kontaktowy: <span th:text="${orderLink.customer.Phone}" class="name-order-in"></span>
             </p>
             <p class="name-order">
-                Status realizacji:
+                Status realizacji: <span th:text="${orderLink.order.isCompleted ? 'zrealizowany' : 'w trakcie realizacji'}" class="name-order-in"></span>
             </p>
-            <button class="button-class" style="margin-left: 45%">
-                Realizacja
-            </button>
+            <form th:action="@{/admin/changeStatusOrder(OrderID=${orderLink.order.Id}, isCompleted=${orderLink.order.isCompleted})}" method="post">
+                <button class="button-class" style="margin-left: 45%" type="submit">
+                    <span th:text="${orderLink.order.isCompleted ? 'Wycofaj' : 'Realizacja'}"></span>
+                </button>
+            </form>
         </div>
     </div>
 </section>

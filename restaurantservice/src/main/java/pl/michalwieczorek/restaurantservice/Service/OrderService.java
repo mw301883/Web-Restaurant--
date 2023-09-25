@@ -30,11 +30,13 @@ public class OrderService {
         Optional<CustomerOrder> order = orderRepository.findById(OrderID);
         order.get().setCompleted(true);
         order.get().setEndDate(Calendar.getInstance());
+        orderRepository.save(order.get());
     }
     public void cancelOrderStatus(Long OrderID){
         Optional<CustomerOrder> order = orderRepository.findById(OrderID);
         order.get().setCompleted(false);
         order.get().setEndDate(null);
+        orderRepository.save(order.get());
     }
     public CustomerOrder findByID(Long ID){
         return orderRepository.findById(ID).get();

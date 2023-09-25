@@ -76,4 +76,14 @@ public class AdminController {
             return "admin/password";
         }
     }
+    @PostMapping("/changeStatusOrder")
+    public String changeStatusOrder(@RequestParam Long OrderID, @RequestParam boolean isCompleted){
+        if(isCompleted){
+            orderService.cancelOrderStatus(OrderID);
+        }
+        else{
+            orderService.changeOrderStatus(OrderID);
+        }
+        return "redirect:/admin/orders";
+    }
 }

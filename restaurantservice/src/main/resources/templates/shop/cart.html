@@ -28,7 +28,7 @@
             </span>
             <div class="element-basket" th:each="meal : ${cart}">
                 <p class="name-basket">
-                    Nazwa: <span th:text="${meal.Name}"></span>
+                    Nazwa: <span th:text="${meal.Name}" class="name-order-in"></span>
                 </p>
                 <p class="name-basket">
                     Cena: <span th:text="${meal.Price}"></span> zł
