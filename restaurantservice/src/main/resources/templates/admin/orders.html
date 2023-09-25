@@ -6,44 +6,53 @@
     <link rel="stylesheet" href="\css\style.css"/>
 </head>
 <body>
-    <section>
-        <header>
-          <span class="title">
-            Panel zamówień
-          </span>
-          <div class="header-container">
+<section>
+    <header>
+        <span class="title">Panel zamówień</span>
+        <div class="header-container">
             <p class="price">
-              Ilość zamówień ()
+                Ilość zamówień (<span th:text="${count}"></span>)
             </p>
-            <a href="/admin" class="basket">
-              Powrót
-            </a>
-          </div>
-        </header>
-    </section>
-    <section>
-        <div class="element-main">
-            <span class="menu-descr">
-                Zamówienia
-            </span>
-            <div class="element-basket">
-                <p class="name-basket">
-                    ID: 
-                </p>
-                <p class="name-basket">
-                    Zawartość: 
-                </p>
-                <p class="name-basket">
-                    Cena: xx zł
-                </p>
-                <p class="name-basket">
-                    Czy opłacone:
-                </p>
-                <button class="button-class">
-                    Realizacja
-                </button>
-            </div>
+            <a href="/admin" class="basket">Powrót</a>
         </div>
-    </section>
+    </header>
+</section>
+<section>
+    <div class="element-main">
+        <span class="menu-descr">Zamówienia</span>
+        <div class="element-order" th:each="orderLink : ${orders}">
+            <p class="name-order">
+                Numer: <!--<span th:text="${orderLink.order.Id}"></span>-->
+            </p>
+            <p class="name-order">
+                Zawartość:
+            </p>
+            <p class="name-order">
+                Cena: <!--<span th:text="${orderLink.price}"></span>--> zł
+            </p>
+            <p class="name-order">
+                Data złożenia: <!--<span th:text="${#calendars.format(orderLink.order.BeginDate, 'yyyy-MM-dd HH:mm:ss')}"></span>-->
+            </p>
+            <p class="name-order">
+                Data realizacji: <!--<span th:text="${#calendars.format(orderLink.order.EndDate, 'yyyy-MM-dd HH:mm:ss')}"></span>-->
+            </p>
+            <p class="name-order">
+                Imię i Nazwisko Klienta:
+            </p>
+            <p class="name-order">
+                Dane adresowe:
+            </p>
+            <p class="name-order">
+                Telefon kontaktowy:
+            </p>
+            <p class="name-order">
+                Status realizacji:
+            </p>
+            <button class="button-class" style="margin-left: 45%">
+                Realizacja
+            </button>
+        </div>
+    </div>
+</section>
 </body>
 </html>

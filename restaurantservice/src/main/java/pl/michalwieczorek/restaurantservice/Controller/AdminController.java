@@ -4,9 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.michalwieczorek.restaurantservice.Controller.OrderLink.OrderLink;
+import pl.michalwieczorek.restaurantservice.Model.Customer;
+import pl.michalwieczorek.restaurantservice.Model.CustomerOrder;
 import pl.michalwieczorek.restaurantservice.Model.Meal;
 import pl.michalwieczorek.restaurantservice.Service.AdminAccountService;
+import pl.michalwieczorek.restaurantservice.Service.CustomerService;
 import pl.michalwieczorek.restaurantservice.Service.MealService;
+import pl.michalwieczorek.restaurantservice.Service.OrderService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -14,10 +22,14 @@ import pl.michalwieczorek.restaurantservice.Service.MealService;
 public class AdminController {
     private final MealService mealService;
     private final AdminAccountService adminAccountService;
+    private final OrderService orderService;
+    private final CustomerService customerService;
     @Autowired
-    public AdminController(MealService mealService, AdminAccountService adminAccountService) {
+    public AdminController(MealService mealService, AdminAccountService adminAccountService, OrderService orderService, CustomerService customerService) {
         this.mealService = mealService;
         this.adminAccountService = adminAccountService;
+        this.orderService = orderService;
+        this.customerService = customerService;
     }
     @GetMapping
     public String AdminPage(Model model){
@@ -37,7 +49,21 @@ public class AdminController {
         return "redirect:/admin";
     }
     @GetMapping("/orders")
-    String OrdersPage(){ return "admin/orders"; }
+    String OrdersPage(Model model){
+        List<OrderLink> orders = new ArrayList<>();
+        for (Long i = 1L; i < orderService.returnSize() + 1; ++i){
+            CustomerOrder order = orderService.findByID(i);
+            List<Meal> meals = new ArrayList<>();
+            for(Long ID : order.getMealsIDs()){
+                meals.add(mealService.findByID(ID));
+            }
+            Customer customer = customerService.findByID(order.getCustomer_Id());
+            orders.add(new OrderLink(order, customer, meals));
+        }
+        model.addAttribute("count", orderService.returnSize());
+        model.addAttribute("orders", orders);
+        return "admin/orders";
+    }
     @GetMapping("/password")
     String PasswordPage(){ return "admin/password"; }
 

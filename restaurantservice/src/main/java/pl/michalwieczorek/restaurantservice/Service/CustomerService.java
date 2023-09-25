@@ -64,4 +64,7 @@ public class CustomerService {
         customer.addOrderID(OrderId);
         customerRepository.save(customer);
     }
+    public Customer findByID(Long ID){
+        return customerRepository.findById(ID).get();
+    }
 }

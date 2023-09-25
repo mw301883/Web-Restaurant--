@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 import pl.michalwieczorek.restaurantservice.Model.CustomerOrder;
 import pl.michalwieczorek.restaurantservice.Repository.OrderRepository;
 
+import java.util.Calendar;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
@@ -18,5 +22,21 @@ public class OrderService {
     }
     public Long returnSize(){
         return orderRepository.count();
+    }
+    public List<CustomerOrder> findAll(){
+        return orderRepository.findAll();
+    }
+    public void changeOrderStatus(Long OrderID){
+        Optional<CustomerOrder> order = orderRepository.findById(OrderID);
+        order.get().setCompleted(true);
+        order.get().setEndDate(Calendar.getInstance());
+    }
+    public void cancelOrderStatus(Long OrderID){
+        Optional<CustomerOrder> order = orderRepository.findById(OrderID);
+        order.get().setCompleted(false);
+        order.get().setEndDate(null);
+    }
+    public CustomerOrder findByID(Long ID){
+        return orderRepository.findById(ID).get();
     }
 }

@@ -26,4 +26,7 @@ public class MealService {
     public long MealsCount(){
         return mealRepository.count();
     }
+    public Meal findByID(Long ID){
+        return mealRepository.findById(ID).get();
+    }
 }
