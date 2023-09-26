@@ -40,7 +40,7 @@ Follow these steps to run the application locally:
    ```bash
    Web-Restaurant.jar
    ```
-3. **Access the application through the following URL in your browser**
+3. **Access the application through the following URL in your browser:**
    ```bash
    http://localhost:8080/
    ```
@@ -50,9 +50,12 @@ Follow these steps to run the application locally:
    ```
    **Default login credentials:**
 
-    Login: admin
+    Login: admin  
     Password: password
-
+5. **If you want to see the Data Base you can easily get access to the H2-console panel using this URL (password to log in is "password"):**
+   ```bash
+   http://localhost:8080/h2-console/
+   ```
 ## Tech Stack
 
 **Languages:** Java, HTML, CSS
