@@ -1,62 +1,60 @@
-# Web-Restaurant--
-REST app project written in Java with Spring Boot framework. The program is simulating restaurant Web-Order Service, where customers are able to make orders consisting from on page avaible meals.
-I also ensured admin page which you can get access after successful signing in. Admin is able to add/remove meal from the customer offer and have access to managing all orders. 
-This is only the simulation so I used the H2 Data Base which only store data in memory during program running. 
-Source code is placed on Master Branch.   
+# Web Restaurant - A Spring Boot Web-Order Service Simulation
 
+Welcome to Web Restaurant, a simulated web-order service application written in Java using the Spring Boot framework. This project allows customers to place orders by choosing from a selection of available meals. Additionally, there's an admin portal for managing orders and the restaurant's menu.
 
-## 🚀 About Me
-Hi, my name is Michał  Wieczorek I'm a student of Silesian Univeristy of Technology in Poland. I am studing Computer Sciencie and currently looking for first employment/apprenticeship.
+## About Me
 
+Hello, I'm Michał Wieczorek, a Computer Science student at the Silesian University of Technology in Poland. I am eager to kickstart my career in the tech industry and currently exploring employment and apprenticeship opportunities.
 
 ## Program Functions
 
-#Customer
-- making orders (choosing specified meals avaible on page and entering contact datas)
-#Admin
-- managing customer's orders (changing status of order - DONE/UNDONE)
-- adding/removing  meals from the offer
-- changing password to sign in the admin page
+### Customer
+- Place orders by selecting meals available on the website and providing contact information.
 
-
+### Admin
+- Manage customer orders, including changing order status (e.g., DONE, UNDONE).
+- Add or remove meals from the menu.
+- Change the admin page's login password.
 
 ## Screenshots
 
-<img src="Screens/Screen1.png" width="400" height="200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Screens/Screen2.png" width="400" height="200">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Screens/Screen3.png" width="400" height="200">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Screens/Screen4.png" width="400" height="200">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Screens/Screen5.png" width="400" height="200">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Screens/Screen6.png" width="400" height="200">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Screens/Screen7.png" width="400" height="200">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Screens/Screen8.png" width="400" height="200">
+Here are some screenshots of the application:
+- ![Screen1](Screens/Screen1.png)
+- ![Screen2](Screens/Screen2.png)
+- ![Screen3](Screens/Screen3.png)
+- ![Screen4](Screens/Screen4.png)
+- ![Screen5](Screens/Screen5.png)
+- ![Screen6](Screens/Screen6.png)
+- ![Screen7](Screens/Screen7.png)
+- ![Screen8](Screens/Screen8.png)
+
 ## Run Locally
 
-Clone the project
+Follow these steps to run the application locally:
 
-```bash
-  https://github.com/mw301883/Web-Restaurant--
-```
+1. **Clone the project:**
+   ```bash
+   git clone https://github.com/mw301883/Web-Restaurant--
+   ```
+2. **Navigate the executable file:**
+   ```bash
+   Web-Restaurant.jar
+   ```
+3. **Access the application through the following URL in your browser**
+   ```bash
+   http://localhost:8080/
+   ```
+4. **For admin functionalities, log in using the below URL:**
+   ```bash
+   http://localhost:8080/admin
+   ``
+   **Default login credentials:**
 
-Go to the Release file
-
-```bash
-  run executable file Snake_Game.exe
-```
-
-When the application is running it is avaible in below URL in your browser
-```bash
-  http://localhost:8080/
-```
-To get the admin functions you need to log in at below URL
-```bash
-  http://localhost:8080/admin
-```
-#default signing datas: 
-Login: admin 
-Password: password
+    Login: admin
+    Password: password
 
 ## Tech Stack
 
 **Languages:** Java, HTML, CSS
 
-**Frameworks:** Spring Boot, Spring Security, Hibernate (H2 DataBase), Thymleaf     
+**Frameworks:** Spring Boot, Spring Security, Hibernate (H2 DataBase), Thymleaf
