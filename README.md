@@ -36,9 +36,9 @@ Follow these steps to run the application locally:
    ```bash
    git clone https://github.com/mw301883/Web-Restaurant--
    ```
-2. **Navigate the executable file:**
+2. **Navigate the executable file in folder "out":**
    ```bash
-   Web-Restaurant.jar
+   restaurantservice.jar
    ```
 3. **Access the application through the following URL in your browser:**
    ```bash
