@@ -26,12 +26,12 @@
             </p>
             <p class="name-order">
                 Zawartość:
-                <div th:each="meal : ${orderLink.meals}">
-                    <span th:text="${meal.Name}" class="name-order-in"> </span>
+                <div th:each="Name : ${orderLink.order.MealsNames}">
+                    <span th:text="${Name}" class="name-order-in"> </span>
                 </div>
             </p>
             <p class="name-order">
-                Cena: <span th:text="${orderLink.price}" class="name-order-in"></span> zł
+                Cena: <span th:text="${orderLink.order.Price}" class="name-order-in"></span> zł
             </p>
             <p class="name-order">
                 Data złożenia: <span th:text="${#calendars.format(orderLink.order.BeginDate, 'yyyy-MM-dd HH:mm:ss')}" class="name-order-in"></span>

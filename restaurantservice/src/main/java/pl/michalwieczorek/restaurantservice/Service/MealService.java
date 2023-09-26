@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.michalwieczorek.restaurantservice.Model.Meal;
 import pl.michalwieczorek.restaurantservice.Repository.MealRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -28,5 +29,12 @@ public class MealService {
     }
     public Meal findByID(Long ID){
         return mealRepository.findById(ID).get();
+    }
+    public BigDecimal calculateTotalPrice(List<Long> MealsIDs) {
+        BigDecimal totalPrice = BigDecimal.ZERO;
+        for (Long ID : MealsIDs) {
+            totalPrice = totalPrice.add(mealRepository.findById(ID).get().getPrice());
+        }
+        return totalPrice;
     }
 }

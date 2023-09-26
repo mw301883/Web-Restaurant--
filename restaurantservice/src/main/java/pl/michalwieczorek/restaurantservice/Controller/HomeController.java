@@ -14,6 +14,7 @@ import pl.michalwieczorek.restaurantservice.Repository.CustomerRepository;
 import pl.michalwieczorek.restaurantservice.Repository.MealRepository;
 import pl.michalwieczorek.restaurantservice.Repository.OrderRepository;
 import pl.michalwieczorek.restaurantservice.Service.CustomerService;
+import pl.michalwieczorek.restaurantservice.Service.MealService;
 import pl.michalwieczorek.restaurantservice.Service.OrderService;
 
 import java.math.BigDecimal;
@@ -27,12 +28,14 @@ public class HomeController {
     private final MealRepository mealRepository;
     private final CustomerService customerService;
     private final OrderService orderService;
+    private final MealService mealService;
     private List<Long> MealsIDs = new ArrayList<>();
     @Autowired
-    public HomeController(MealRepository mealRepository, CustomerService customerService, OrderService orderService) {
+    public HomeController(MealRepository mealRepository, CustomerService customerService, OrderService orderService, MealService mealService) {
         this.mealRepository = mealRepository;
         this.customerService = customerService;
         this.orderService = orderService;
+        this.mealService = mealService;
     }
     private BigDecimal CalculateCartVal(){
         BigDecimal price = BigDecimal.ZERO;
@@ -81,15 +84,19 @@ public class HomeController {
     @PostMapping("/makeOrder")
     public String makeOrder(Customer customer){
         customerService.addCustomer(customer);
+        List<String> MealsNames = new ArrayList<>();
+        for(Long ID : MealsIDs){
+            MealsNames.add(mealRepository.findById(ID).get().getName());
+        }
         if(customer.getId() != null){
             Long CustomerID = customer.getId();
-            CustomerOrder order = new CustomerOrder(CustomerID, MealsIDs);
+            CustomerOrder order = new CustomerOrder(CustomerID, MealsNames, mealService.calculateTotalPrice(MealsIDs));
             Long OrderID = orderService.addOrder(order);
             customerService.addOrder(CustomerID, OrderID);
         }
         else{
             Long CustomerID = customerService.findID(customer);
-            CustomerOrder order = new CustomerOrder(CustomerID, MealsIDs);
+            CustomerOrder order = new CustomerOrder(CustomerID, MealsNames, mealService.calculateTotalPrice(MealsIDs));
             Long OrderID = orderService.addOrder(order);
             customerService.addOrder(CustomerID, OrderID);
         }

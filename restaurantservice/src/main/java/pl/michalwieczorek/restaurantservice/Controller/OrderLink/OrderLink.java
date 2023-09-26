@@ -18,19 +18,4 @@ import java.util.List;
 public class OrderLink {
     private CustomerOrder order;
     private Customer customer;
-    List<Meal> meals;
-    BigDecimal price;
-    private BigDecimal calculateTotalPrice() {
-        BigDecimal totalPrice = BigDecimal.ZERO;
-        for (Meal meal : meals) {
-            totalPrice = totalPrice.add(meal.getPrice());
-        }
-        return totalPrice;
-    }
-    public OrderLink(CustomerOrder order, Customer customer, List<Meal> meals){
-        this.order = order;
-        this.customer = customer;
-        this.meals = meals;
-        this.price = calculateTotalPrice();
-    }
 }

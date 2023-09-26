@@ -53,12 +53,8 @@ public class AdminController {
         List<OrderLink> orders = new ArrayList<>();
         for (Long i = 1L; i < orderService.returnSize() + 1; ++i){
             CustomerOrder order = orderService.findByID(i);
-            List<Meal> meals = new ArrayList<>();
-            for(Long ID : order.getMealsIDs()){
-                meals.add(mealService.findByID(ID));
-            }
             Customer customer = customerService.findByID(order.getCustomer_Id());
-            orders.add(new OrderLink(order, customer, meals));
+            orders.add(new OrderLink(order, customer));
         }
         model.addAttribute("count", orderService.returnSize());
         model.addAttribute("orders", orders);
