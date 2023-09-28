@@ -40,8 +40,11 @@ Follow these steps to run the application locally:
    ```bash
    restaurantservice-0.0.1-SNAPSHOT.jar
    ```
-   Note : I recomend run the application with CMD in order to easily shut down application by CTRL^C
-   or you can kill the process in Task Manager.  
+   Note : I recomend run the application with CMD in order to easily shut down application by CTRL^C, you just need to open CMD in folder of JAR file and execute below command:
+   ```bash
+   java -jar restaurantservice-0.0.1-SNAPSHOT.jar
+   ```
+   Or you can kill the process in Task Manager.  
 
 4. **Access the application through the following URL in your browser:**
    ```bash
