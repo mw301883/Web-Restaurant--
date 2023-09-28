@@ -44,7 +44,7 @@ Follow these steps to run the application locally:
    ```bash
    java -jar restaurantservice-0.0.1-SNAPSHOT.jar
    ```
-   Or you can kill the process in Task Manager.  
+   or you can kill the process in Task Manager.  
 
 4. **Access the application through the following URL in your browser:**
    ```bash
