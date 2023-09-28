@@ -36,15 +36,18 @@ Follow these steps to run the application locally:
    ```bash
    git clone https://github.com/mw301883/Web-Restaurant--
    ```
-2. **Navigate the executable file in folder "out":**
+2. **Navigate the executable file in folder "target":**
    ```bash
-   restaurantservice.jar
+   restaurantservice-0.0.1-SNAPSHOT.jar
    ```
-3. **Access the application through the following URL in your browser:**
+   Note : I recomend run the application with CMD in order to easily shut down application by CTRL^C
+   or you can kill the process in Task Manager.  
+
+4. **Access the application through the following URL in your browser:**
    ```bash
    http://localhost:8080/
    ```
-4. **For admin functionalities, log in using the below URL:**
+5. **For admin functionalities, log in using the below URL:**
    ```bash
    http://localhost:8080/admin
    ```
@@ -52,7 +55,7 @@ Follow these steps to run the application locally:
 
     Login: admin  
     Password: password
-5. **If you want to see the Data Base you can easily get access to the H2-console panel using this URL (password to log in is "password"):**
+6. **If you want to see the Data Base you can easily get access to the H2-console panel using this URL (password to log in is "password"):**
    ```bash
    http://localhost:8080/h2-console/
    ```
