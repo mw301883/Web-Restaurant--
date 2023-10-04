@@ -34,15 +34,15 @@ Follow these steps to run the application locally:
 
 1. **Clone the project:**
    ```bash
-   git clone https://github.com/mw301883/Web-Restaurant--
+   git clone https://github.com/mw301883/Web-Restaurant--.git
    ```
-2. **Navigate the executable file in folder "target":**
+2. **Navigate the executable file in main folder:**
    ```bash
-   restaurantservice-0.0.1-SNAPSHOT.jar
+   restaurantservice.jar
    ```
-   Note : I recomend run the application with CMD in order to easily shut down application by CTRL^C, you just need to open CMD in folder of JAR file and execute below command:
+   Note : I recommend to run the application with CMD in order to easy shut down by CTRL^C, you just need to open CMD in the directory of JAR file and execute below command:
    ```bash
-   java -jar restaurantservice-0.0.1-SNAPSHOT.jar
+   java -jar restaurantservice.jar
    ```
    or you can kill the process in Task Manager.  
 
